@@ -30,7 +30,7 @@ CompanyName = 'Sriram J Iyer'
 Copyright = '(c)Sriram J Iyer. All rights reserved.'
 
 # Description of the functionality provided by this module
-Description = 'This module is a collection of functions to manage WSL system and distros. It utlizes Ubuntu cloud images and cloud-init to create and manage WSL distros.'
+Description = 'This module is a collection of functions to manage WSL system and distros. It utilizes Ubuntu cloud images and cloud-init to create and manage WSL distros.'
 
 # Minimum version of the PowerShell engine required by this module
 # PowerShellVersion = ''
@@ -123,13 +123,17 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        # Tags = @()
+        Tags = @(
+            'WSL'
+            'cloud-init'
+            'Ubuntu'
+        )
 
         # A URL to the license for this module.
         # LicenseUri = ''
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = 'https://github.com/sriramjiyer/WSLForge'
 
         # A URL to an icon representing this module.
         # IconUri = ''

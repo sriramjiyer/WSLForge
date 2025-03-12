@@ -11,7 +11,7 @@
 
 function Invoke-WslExe {
     [Alias('iwe')]
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/Invoke-WslExe.md')]
     param(
         # Output Encoding to use. Default is Unicode (UTF16-LE).
         [Parameter()]
@@ -66,7 +66,7 @@ function Invoke-WslExe {
 #>
 function Find-WslDistro {
     [Alias('fiwd')]
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/Find-WslDistro.md')]
     Param (
         # Name of the distro to find. Default is all distros. Wildcards are supported.
         [Parameter(Position = 0)]
@@ -126,12 +126,16 @@ function Find-WslDistro {
 .EXAMPLE
     Get-WslDistro
 
-    .EXAMPLE
+    Get all distros installed on this machine.
+
+ .EXAMPLE
     Get-WslDistro -Name 'U*'
+
+    Get all distros installed on this machine that start with 'U'.
 #>
 function Get-WslDistro {
     [Alias('gwid', 'Get-WslInstalledDistro')]
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/Get-WslDistro.md')]
     Param (
         # Name of the distro. Default is all distros. Wildcards are supported.
         [Parameter(Position = 0)]
@@ -221,7 +225,10 @@ function Get-WslDistro {
 #>
 function Invoke-WslLinuxCommand {
     [Alias('iwlc', 'Invoke-WslCommand')]
-    [CmdletBinding(DefaultParameterSetName = 'DefaultDistribution')]
+    [CmdletBinding(
+        DefaultParameterSetName = 'DefaultDistribution',
+        HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/Invoke-WslLinuxCommand.md'
+    )]
     Param(
         # Runs command on System Distro
         [Parameter(ParameterSetName = 'System')]
@@ -302,7 +309,10 @@ function Invoke-WslLinuxCommand {
 #>
 function Enter-WslShell {
     [Alias('ews', 'Enter-WslDistro')]
-    [CmdletBinding(DefaultParameterSetName = 'DefaultDistribution')]
+    [CmdletBinding(
+        DefaultParameterSetName = 'DefaultDistribution',
+        HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/Enter-WslShell.md'
+    )]
     Param(
         # Enter shell in System Distro
         [Parameter(ParameterSetName = 'System')]
@@ -364,7 +374,7 @@ function Enter-WslShell {
 #>
 function Invoke-WslDebugShell {
     [Alias('iwds')]
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/Invoke-WslDebugShell.md')]
     Param()
 
     &wsl.exe --debug-shell
@@ -382,7 +392,7 @@ function Invoke-WslDebugShell {
 #>
 function Get-WslSystem {
     [Alias('gws')]
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/Get-WslSystem.md')]
     param ()
 
     if ( -not (Invoke-WslExe -OutputEncoding UnicodeEncoding --status -ErrorAction SilentlyContinue) ) {
@@ -418,7 +428,7 @@ function Get-WslSystem {
 #>
 function Stop-WslDistro {
     [Alias('swd', 'Terminate-WslDistro')]
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/Stop-WslDistro.md')]
     param (
         # Distro
         [Parameter(Position = 0, Mandatory = $true)]
@@ -443,7 +453,7 @@ function Stop-WslDistro {
 #>
 function Stop-WslSystem {
     [Alias('sws')]
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/Stop-WslSystem.md')]
     param ()
 
     Invoke-WslExe -OutputEncoding UnicodeEncoding --shutdown
@@ -463,7 +473,7 @@ function Stop-WslSystem {
 #>
 function Remove-WslDistro {
     [Alias('rwd', 'Unregister-WslDistro')]
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/Remove-WslDistro.md')]
     param (
         # Name of Distro to be removed.
         [Parameter(Position = 0, Mandatory = $true)]
@@ -490,7 +500,7 @@ function Remove-WslDistro {
 #>
 function Move-WslDistro {
     [Alias('mwd')]
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/Move-WslDistro.md')]
     param (
         # Name of Distro to be moved.
         [Parameter(Position = 0, Mandatory = $true)]
@@ -538,7 +548,7 @@ function Move-WslDistro {
 #>
 function Set-WslDistro {
     [Alias('swd')]
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/Set-WslDistro.md')]
     param (
         # Name of Distro to be configured.
         [Parameter(Position = 0, Mandatory = $true)]
@@ -592,7 +602,7 @@ function Set-WslDistro {
 #>
 function Set-WslSystem {
     [Alias('sws')]
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/Set-WslSystem.md')]
     param (
         # Set DefaultVersion
         [Parameter()]
@@ -637,7 +647,7 @@ function Set-WslSystem {
 #>
 function Update-WslSystem {
     [Alias('uws')]
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/Update-WslSystem.md')]
     param (
         # Allow update to PreRelease version.
         [Parameter()]
@@ -667,7 +677,7 @@ function Update-WslSystem {
 #>
 function Uninstall-WslSystem {
     [Alias('uws')]
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/Uninstall-WslSystem.md')]
     param ()
 
     Invoke-WslExe -OutputEncoding UnicodeEncoding --uninstall
@@ -687,7 +697,7 @@ function Uninstall-WslSystem {
 #>
 function Export-WslDistro {
     [Alias('ewd')]
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/Export-WslDistro.md')]
     param (
         # Distro to be exported.
         [Parameter(Position = 0, Mandatory = $true)]
@@ -730,7 +740,10 @@ function Export-WslDistro {
 #>
 function Import-WslDistro {
     [Alias('iwd')]
-    [CmdletBinding(DefaultParameterSetName = 'Import')]
+    [CmdletBinding(
+        DefaultParameterSetName = 'Import',
+        HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/Import-WslDistro.md'
+    )]
     param (
         # Name of the imported distro.
         [Parameter(Position = 0, Mandatory = $true)]
@@ -816,7 +829,7 @@ function Import-WslDistro {
 #>
 function Install-WslSystem {
     [Alias('iws')]
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/Install-WslSystem.md')]
     param (
         # Allow install of PreRelease version.
         [Parameter()]
@@ -862,7 +875,7 @@ function Install-WslSystem {
     ConvertTo-GzipBase64 -Source ( [byte[]](72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100, 33, 33 ) )
 #>
 function ConvertTo-GzipBase64 {
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/ConvertTo-GzipBase64.md')]
     param (
         # Data source to be compressed and encoded. Can be a file path (string that resolves to a file path), URL (string starts with https), string (any other string) or byte array.
         [Parameter(Position = 0, Mandatory = $true )]
@@ -938,7 +951,7 @@ function ConvertTo-GzipBase64 {
     Creates a cloud-init user data file for MyDistro distro with PowerShell and ImportExcel module installed and shell set to powershell.
 #>
 function New-WslCloudInitUserData {
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/New-WslCloudInitUserData.md')]
     param (
         # Name of the distro. Default is 'CustomDistro'. To generate a default.user-data file, specify 'default'.
         [Parameter(Position = 0)]
@@ -1568,12 +1581,12 @@ function New-WslCloudInitUserData {
     Creates a custom distro named MyDistro using the user data file MyDistro.user-data.
 #>
 function New-WslCustomDistro {
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://github.com/sriramjiyer/WSLForge/blob/main/docs/New-WslCustomDistro.md')]
     param (
         # Name of the distro.
-        [Parameter(Position = 0, Mandatory = $true)]
+        [Parameter(Position = 0)]
         [Alias('Distro')]
-        [string] $Name,
+        [string] $Name = 'CustomDistro',
 
         # User data file to configure the distro.
         [Parameter(Position = 1)]
